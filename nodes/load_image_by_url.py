@@ -37,7 +37,7 @@ class LoadImageByUrl:
 
     def download_by_url(self):
         input_dir = folder_paths.get_input_directory()
-        res = http_client().get(self.url)
+        res = http_client().get(self.url, timeout=2)
         if res.status_code == 200:
             download_path = os.path.join(input_dir, self.filename())
             with open(download_path, 'wb') as file:
